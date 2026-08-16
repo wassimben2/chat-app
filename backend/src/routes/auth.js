@@ -1,8 +1,12 @@
 import express from "express";
 const router = express.Router();
 import { signUp, login, logout } from "../controllers/auth.controller.js";
+import { updateProfile } from "../controllers/profile.controller.js";
+import { authProtected } from "../middleware/auth.middleware.js";
+import { CheckAuth } from "../controllers/auth.controller.js";
 router.post("/register", signUp);
 router.post("/login", login);
 router.post("/logout", logout);
-
+router.put("/update-profile", authProtected, updateProfile);
+router.get("/check", authProtected, CheckAuth);
 export default router;
