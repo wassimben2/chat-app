@@ -33,7 +33,7 @@ export const signUp = async (req, res) => {
       id: newUser._id,
       email: newUser.email,
       fullname: newUser.fullname,
-      profielpicture: newUser.profielpicture,
+      profilePicture: newUser.profilePicture,
     });
   } catch (err) {
     console.log(err);
